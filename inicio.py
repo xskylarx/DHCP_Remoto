@@ -1,4 +1,11 @@
+# -*- coding: utf-8 -*-
 
+# Python + PyQt4 By Skylar 
+#
+# Creado: 29 - sep - 2013
+#      Por: xskylarx
+# xskyofx@gmail.com
+# Por favor si modificas algo haz referencia al autor.
 from PyQt4 import QtCore, QtGui
 import sys
 from login import Ui_Form
@@ -27,7 +34,7 @@ class v_login(QtGui.QDialog):
 			return False
 			"""
 			#QMessageBox.about(self, "Error Acceso Denegado", 'entre a consulta')
-			conn = pyodbc.connect("DRIVER={SQL Server};SERVER=192.168.1.150;UID=appRecovery;PWD=appRecovery;")
+			conn = pyodbc.connect("DRIVER={SQL Server};SERVER=192.168.1.1;UID=usuario;PWD=password;")
 			curs = conn.cursor()
 			curs.execute(sentencia)
 			rows = curs.fetchall()
@@ -516,7 +523,7 @@ class v_principal(QtGui.QWidget):
 		
 
 	def Conecta(self,dhcp_1,sentencia,valor):
-		conn = pyodbc.connect("DRIVER={SQL Server};SERVER=%s;UID=retaila;PWD=at2dale;" % (dhcp_1))
+		conn = pyodbc.connect("DRIVER={SQL Server};SERVER=%s;UID=usuario;PWD=password;" % (dhcp_1))
 		curs = conn.cursor()
 		curs.execute(sentencia)
 
@@ -541,7 +548,7 @@ class v_principal(QtGui.QWidget):
 		conn.close ()
 
 	def conectaPosMaster_log(self,inserta):
-	    conn = pyodbc.connect("DRIVER={SQL Server};SERVER=192.168.1.150;UID=appRecovery;PWD=appRecovery;")
+	    conn = pyodbc.connect("DRIVER={SQL Server};SERVER=192.168.1.1;UID=usuario;PWD=password;")
 	    curs = conn.cursor()
 	    curs.execute(inserta)
 	    curs.commit()
